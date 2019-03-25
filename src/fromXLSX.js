@@ -1,6 +1,8 @@
 const XLSX = require('XLSX')
 const fs = require('fs')
 
+const debug=require('debug')('generator')
+
 export default function factoryGenerator(options){
     let buffer = []
 
@@ -23,7 +25,13 @@ export default function factoryGenerator(options){
             }
             if(buffer.length>0){
                 let file = buffer.pop().filename
+
+                if(options.extension && !file.endsWith(options.extension)){
+                    continue
+                }
+
                 let fqpath = `${options.dir || ''}${file}`
+                console.log(`Reading from: ${fqpath}`)
                 var xlsx = XLSX.readFile(fqpath, {})
                 for(let sheetIndex=0;sheetIndex<xlsx.SheetNames.length;sheetIndex++){
                     let sheetname = xlsx.SheetNames[sheetIndex] 
@@ -31,7 +39,7 @@ export default function factoryGenerator(options){
                     let rows = XLSX.utils.sheet_to_json(sheet)
                     for(let rowIndex=0;rowIndex<rows.length;rowIndex++){
                         let row = rows[rowIndex]
-                        let r = Object.assign(row,{TypeOfRecord: sheetname}) 
+                        let r = Object.assign(row,{SheetName: sheetname}) 
                         yield new Promise((resolve)=>resolve(r))
                     }
                 }

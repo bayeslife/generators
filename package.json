@@ -2,8 +2,11 @@
   "name": "@bayeslife/generators",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/generator.umd.js",
+  "module": "dist/generator.mjs",
+  "main:umd": "dist/generator.umd.js",
   "scripts": {
+    "build": "rollup -c",
     "start": "node -r @babel/register index.js",
     "test": "ava test"
   },
@@ -12,16 +15,18 @@
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/register": "^7.4.0",
+    "debug": "^4.1.1",
     "xlsx": "^0.14.1"
   },
   "devDependencies": {
     "ava": "^1.3.1",
     "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1"
+    "babel-preset-es2015": "^6.24.1",
+    "rollup": "^1.7.3"
   },
   "ava": {
     "require": [
-			"@babel/register"
-		]
+      "@babel/register"
+    ]
   }
 }
