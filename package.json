@@ -7,6 +7,7 @@
   "main:umd": "dist/generator.umd.js",
   "scripts": {
     "build": "rollup -c",
+    "lint": "echo 'No lint yet'",
     "start": "node -r @babel/register index.js",
     "test": "ava test"
   },
