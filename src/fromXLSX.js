@@ -1,4 +1,4 @@
-const XLSX = require('XLSX')
+const XLSX = require('xlsx')
 const fs = require('fs')
 
 const debug=require('debug')('generator')
