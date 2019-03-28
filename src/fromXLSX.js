@@ -30,8 +30,8 @@ export default function factoryGenerator(options){
                     continue
                 }
 
-                let fqpath = `${options.dir || ''}${file}`
-                console.log(`Reading from: ${fqpath}`)
+                let fqpath = `${options.dir ? (options.dir+'/') : ''}${file}`
+                debug(`Reading from: ${fqpath}`)
                 var xlsx = XLSX.readFile(fqpath, {})
                 for(let sheetIndex=0;sheetIndex<xlsx.SheetNames.length;sheetIndex++){
                     let sheetname = xlsx.SheetNames[sheetIndex] 
