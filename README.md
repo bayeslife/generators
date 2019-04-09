@@ -13,7 +13,8 @@ The consequences should include:
 
 
 In order to figure out how useful generators are it would seem appropiate to have an opinated library that attempts to provided generators for all sorts of things.  This list can include:
-- produce infinite stream of events related to new entries in a xslx file
+- produce infinite stream of events related to new entries or updates to an xslx file
+- produce infinite stream of events related to new entries or updates to an eventhub
 - produce infinite stream of events related to new entries in a csv files in a directory
 - produce infinite stream of events related to new entries in a relational database
 - produce infinite stream of events related to new entries in a no-sql database

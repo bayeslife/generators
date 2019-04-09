@@ -17,6 +17,7 @@
   "dependencies": {
     "@babel/core": "^7.3.4",
     "@babel/register": "^7.4.0",
+    "csvtojson": "^2.0.8",
     "debug": "^4.1.1",
     "xlsx": "^0.14.1"
   },
