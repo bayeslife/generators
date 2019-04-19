@@ -42,6 +42,9 @@ export default function factoryGenerator (options) {
                         let r = Object.assign(row, { SheetName: sheetname })
                         yield new Promise((resolve) => resolve(r))
                     }
+                    if (options.single) {
+                        return
+                    }
                 }
             } else {
                 await new Promise((resolve) => {
